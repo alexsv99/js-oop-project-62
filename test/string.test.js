@@ -1,8 +1,7 @@
 import Validator from '../src';
 
-test('string rule', () => {
+test('string schema, string rule', () => {
   const v = new Validator();
-  // expect().toBe()
 
   const schema = v.string();
   expect(schema.isValid('')).toBeTruthy();
@@ -11,18 +10,20 @@ test('string rule', () => {
   expect(schema.isValid('some text')).toBeTruthy();
 });
 
-test('required rule', () => {
+test('string schema, required rule', () => {
   const v = new Validator();
-  const schema = v.required();
+  const schema = v.string();
+  schema.required();
 
   expect(schema.isValid('go yuohoou!')).toBeTruthy();
   expect(schema.isValid(null)).toBeFalsy();
   expect(schema.isValid('')).toBeFalsy();
 })
 
-test('minLength rule', () => {
+test('string schema, minLength rule', () => {
   const v = new Validator();
-  const schema = v.minLength(5);
+  const schema = v.string();
+  schema.minLength(5);
 
   expect(schema.isValid('go yuohoou!')).toBeTruthy();
   expect(schema.isValid('four')).toBeFalsy();
@@ -30,9 +31,10 @@ test('minLength rule', () => {
   expect(schema.isValid('sea')).toBeFalsy();
 })
 
-test('contains rule', () => {
+test('string schema, contains rule', () => {
   const v = new Validator();
-  const schema = v.contains('go');
+  const schema = v.string();
+  schema.contains('go');
 
   expect(schema.isValid('go yuohoou!')).toBeTruthy();
   expect(schema.isValid('programm')).toBeFalsy();
