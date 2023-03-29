@@ -1,6 +1,6 @@
 import Validator from '../src';
 
-test('string schema, string rule', () => {
+test('string schema, default rule', () => {
   const v = new Validator();
 
   const schema = v.string();
