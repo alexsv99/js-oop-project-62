@@ -1,7 +1,7 @@
 import BaseSchema from './BaseSchema';
 import notNull from '../rules/notNull';
-import number from '../rules/number';
-import positive from '../rules/positive';
+import isNumber from '../rules/isNumber';
+import isPositive from '../rules/isPositive';
 import range from '../rules/range';
 
 export default class NumberSchema extends BaseSchema {
@@ -11,13 +11,13 @@ export default class NumberSchema extends BaseSchema {
 
   required() {
     this.addRule(notNull);
-    this.addRule(number);
+    this.addRule(isNumber);
 
     return this;
   }
 
   positive() {
-    this.addRule(positive);
+    this.addRule(isPositive);
 
     return this;
   }
