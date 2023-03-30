@@ -1,29 +1,31 @@
 import BaseSchema from './BaseSchema';
-import StringRule from '../rules/StringRule';
-import RequiredRule from '../rules/RequiredRule';
-import MinLengthRule from '../rules/MinLengthRule';
-import ContainsRule from '../rules/ContainsRule';
+import notNull from '../rules/notNull';
+import notEmptyString from '../rules/notEmptyString';
+import minLengthString from '../rules/minLengthString';
+import containsString from '../rules/containsString';
 
 export default class StringSchema extends BaseSchema {
-  constructor() {
-    super();
-    this.addRule(new StringRule());
-  }
+  minLengthStr;
+
+  matchStr;
 
   required() {
-    this.addRule(new RequiredRule());
+    this.addRule(notNull);
+    this.addRule(notEmptyString);
 
     return this;
   }
 
   minLength(minLength = 0) {
-    this.addRule(new MinLengthRule(minLength));
+    this.minLengthStr = minLength;
+    this.addRule(minLengthString.bind(this));
 
     return this;
   }
 
   contains(matchStr = '') {
-    this.addRule(new ContainsRule(matchStr));
+    this.matchStr = matchStr;
+    this.addRule(containsString.bind(this));
 
     return this;
   }
