@@ -2,18 +2,26 @@ import StringSchema from './schema/StringSchema';
 import NumberSchema from './schema/NumberSchema';
 
 class Validator {
-  schema;
+  #schema;
+
+  getSchema() {
+    return this.#schema;
+  }
+
+  setSchema(schema) {
+    this.#schema = schema;
+  }
 
   string() {
-    this.schema = new StringSchema();
+    this.setSchema(new StringSchema());
 
-    return this.schema;
+    return this.getSchema();
   }
 
   number() {
-    this.schema = new NumberSchema();
+    this.setSchema(new NumberSchema());
 
-    return this.schema;
+    return this.getSchema();
   }
 }
 
