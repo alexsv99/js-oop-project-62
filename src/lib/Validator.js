@@ -1,6 +1,7 @@
 import StringSchema from './schema/StringSchema';
 import NumberSchema from './schema/NumberSchema';
 import ArraySchema from './schema/ArraySchema';
+import ObjectSchema from './schema/ObjectSchema';
 
 class Validator {
   #schema;
@@ -27,6 +28,12 @@ class Validator {
 
   array() {
     this.setSchema(new ArraySchema());
+
+    return this.getSchema();
+  }
+
+  object() {
+    this.setSchema(new ObjectSchema());
 
     return this.getSchema();
   }
