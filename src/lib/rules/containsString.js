@@ -1,3 +1,3 @@
-export default function containsString(val) {
-  return val.includes(this.matchStr);
-}
+const containsString = (val, matchStr) => val.includes(matchStr);
+
+export default containsString;

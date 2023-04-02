@@ -1,3 +1,3 @@
-export default function range(val) {
-  return val >= this.min && val <= this.max;
-}
+const range = (val, min, max) => val >= min && val <= max;
+
+export default range;

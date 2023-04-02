@@ -4,8 +4,6 @@ import isArray from '../rules/isArray';
 import sizeOf from '../rules/sizeOf';
 
 export default class ArraySchema extends BaseSchema {
-  size;
-
   required() {
     this.addRule(notNull);
     this.addRule(isArray);
@@ -14,8 +12,8 @@ export default class ArraySchema extends BaseSchema {
   }
 
   sizeOf(size) {
-    this.size = size;
-    this.addRule(sizeOf.bind(this));
+    this.expected.sizeOf = [size];
+    this.addRule(sizeOf);
 
     return this;
   }

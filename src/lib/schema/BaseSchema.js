@@ -1,9 +1,17 @@
 import isObject from '../rules/isObject';
 
 export default class BaseSchema {
+  expected = {};
+
   rules = [];
 
   objShape = {};
+
+  constructor(rule = null) {
+    if (typeof rule === 'function') {
+      this.rules.push(rule);
+    }
+  }
 
   #checkShape(obj) {
     const keys = Object.keys(obj);
@@ -20,7 +28,9 @@ export default class BaseSchema {
 
   #checkRules(value) {
     for (let i = 0; i < this.rules.length; i += 1) {
-      if (!this.rules[i](value)) {
+      const fnRule = this.rules[i];
+      const expectedParams = this.expected[fnRule.name] ?? [];
+      if (!fnRule(value, ...expectedParams)) {
         return false;
       }
     }
@@ -36,6 +46,12 @@ export default class BaseSchema {
     }
 
     this.rules.push(newRule);
+  }
+
+  test(expProp, expValue) {
+    this.expected[expProp] = [expValue];
+
+    return this;
   }
 
   isValid(value) {

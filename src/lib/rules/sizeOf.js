@@ -1,3 +1,2 @@
-export default function sizeOf(val) {
-  return val.length === this.size;
-}
+const sizeOf = (val, size) => val.length === size;
+export default sizeOf;

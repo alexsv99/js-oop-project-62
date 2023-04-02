@@ -5,10 +5,6 @@ import minLengthString from '../rules/minLengthString';
 import containsString from '../rules/containsString';
 
 export default class StringSchema extends BaseSchema {
-  minLengthStr;
-
-  matchStr;
-
   required() {
     this.addRule(notNull);
     this.addRule(notEmptyString);
@@ -17,15 +13,15 @@ export default class StringSchema extends BaseSchema {
   }
 
   minLength(minLength = 0) {
-    this.minLengthStr = minLength;
-    this.addRule(minLengthString.bind(this));
+    this.expected.minLengthString = [minLength];
+    this.addRule(minLengthString);
 
     return this;
   }
 
   contains(matchStr = '') {
-    this.matchStr = matchStr;
-    this.addRule(containsString.bind(this));
+    this.expected.containsString = [matchStr];
+    this.addRule(containsString);
 
     return this;
   }

@@ -1,3 +1,3 @@
-export default function minLengthString(val) {
-  return val.length >= this.minLengthStr;
-}
+const minLengthString = (val, minLengthStr) => val.length >= minLengthStr;
+
+export default minLengthString;

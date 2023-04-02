@@ -5,10 +5,6 @@ import isPositive from '../rules/isPositive';
 import range from '../rules/range';
 
 export default class NumberSchema extends BaseSchema {
-  min;
-
-  max;
-
   required() {
     this.addRule(notNull);
     this.addRule(isNumber);
@@ -23,9 +19,8 @@ export default class NumberSchema extends BaseSchema {
   }
 
   range(min, max) {
-    this.min = min;
-    this.max = max;
-    this.addRule(range.bind(this));
+    this.expected.range = [min, max];
+    this.addRule(range);
 
     return this;
   }

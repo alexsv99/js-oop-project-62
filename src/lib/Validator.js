@@ -6,6 +6,12 @@ import ObjectSchema from './schema/ObjectSchema';
 class Validator {
   #schema;
 
+  #customValidators = {
+    string: null,
+    number: null,
+    array: null,
+  };
+
   getSchema() {
     return this.#schema;
   }
@@ -15,19 +21,19 @@ class Validator {
   }
 
   string() {
-    this.setSchema(new StringSchema());
+    this.setSchema(new StringSchema(this.#customValidators.string));
 
     return this.getSchema();
   }
 
   number() {
-    this.setSchema(new NumberSchema());
+    this.setSchema(new NumberSchema(this.#customValidators.number));
 
     return this.getSchema();
   }
 
   array() {
-    this.setSchema(new ArraySchema());
+    this.setSchema(new ArraySchema(this.#customValidators.array));
 
     return this.getSchema();
   }
@@ -36,6 +42,10 @@ class Validator {
     this.setSchema(new ObjectSchema());
 
     return this.getSchema();
+  }
+
+  addValidator(type, nameFunc, func) {
+    this.#customValidators[type] = Object.defineProperty(func, 'name', { value: nameFunc });
   }
 }
 
