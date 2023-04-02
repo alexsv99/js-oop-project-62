@@ -1,4 +1,4 @@
-import Validator from '../index';
+import Validator from '../src';
 
 test('object shape schema', () => {
   const v = new Validator();

@@ -1,4 +1,4 @@
-import Validator from '../index';
+import Validator from '../src';
 
 test('number schema, default rule', () => {
   const v = new Validator();

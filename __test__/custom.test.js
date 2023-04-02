@@ -1,4 +1,4 @@
-import Validator from '../index';
+import Validator from '../src';
 
 test('custom string schema, startWith rule', () => {
   const v = new Validator();
