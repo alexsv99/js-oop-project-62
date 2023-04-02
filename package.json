@@ -7,11 +7,6 @@
     "test": "npx jest",
     "lint": "eslint --ext .js, src"
   },
-  "jest": {
-    "transform": {
-      "^.+\\.[t|j]sx?$": "babel-jest"
-    }
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alexsv99/js-oop-project-62.git"
