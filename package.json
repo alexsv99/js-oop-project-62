@@ -19,6 +19,7 @@
   "bugs": {
     "url": "https://github.com/alexsv99/js-oop-project-62/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/alexsv99/js-oop-project-62#readme",
   "devDependencies": {
     "@babel/preset-env": "^7.20.2",
