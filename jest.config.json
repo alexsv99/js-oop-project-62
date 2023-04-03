@@ -1,7 +1,5 @@
 {
   "verbose": true,
-  "moduleFileExtensions": ["ts", "tsx", "js", "jsx"],
-  "transform": {
-    "^.+\\.[t|j]sx?$": "babel-jest"
-  }
+  "moduleFileExtensions": ["js"],
+  "transform": {}
 }
