@@ -1,3 +1,4 @@
+import { expect, test } from '@jest/globals';
 import Validator from '../src';
 
 test('number schema, default rule', () => {
