@@ -22,9 +22,7 @@
   "type": "module",
   "homepage": "https://github.com/alexsv99/js-oop-project-62#readme",
   "devDependencies": {
-    "@babel/preset-env": "^7.20.2",
     "@jest/globals": "^29.5.0",
-    "babel-jest": "^29.5.0",
     "eslint": "^8.36.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
