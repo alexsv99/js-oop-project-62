@@ -18,7 +18,7 @@ test('array schema, required rule', () => {
   expect(schema.isValid(['hexlet'])).toBeTruthy();
 });
 
-test('array schema, required rule', () => {
+test('array schema, sizeof rule', () => {
   const v = new Validator();
   const schema = v.array();
   schema.sizeof(2);

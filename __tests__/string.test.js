@@ -19,7 +19,7 @@ test('string schema, required rule', () => {
   expect(schema.isValid('go yuohoou!')).toBeTruthy();
   expect(schema.isValid(null)).toBeFalsy();
   expect(schema.isValid('')).toBeFalsy();
-})
+});
 
 test('string schema, minLength rule', () => {
   const v = new Validator();
@@ -30,7 +30,7 @@ test('string schema, minLength rule', () => {
   expect(schema.isValid('four')).toBeFalsy();
   expect(schema.minLength(10).isValid('what does the fox say')).toBeTruthy();
   expect(schema.isValid('sea')).toBeFalsy();
-})
+});
 
 test('string schema, contains rule', () => {
   const v = new Validator();
@@ -41,4 +41,4 @@ test('string schema, contains rule', () => {
   expect(schema.isValid('programm')).toBeFalsy();
   expect(schema.contains('what').isValid('what does the fox say')).toBeTruthy();
   expect(schema.isValid('sea')).toBeFalsy();
-})
+});

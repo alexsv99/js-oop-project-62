@@ -1,7 +1,7 @@
 import BaseSchema from './BaseSchema';
 import notNull from '../rules/notNull';
 import isArray from '../rules/isArray';
-import sizeof from '../rules/sizeof.js';
+import sizeof from '../rules/sizeof';
 
 export default class ArraySchema extends BaseSchema {
   required() {
