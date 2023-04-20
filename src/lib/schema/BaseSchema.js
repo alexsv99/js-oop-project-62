@@ -1,13 +1,11 @@
 import isObject from '../rules/isObject';
 
 export default class BaseSchema {
-  expected = {};
-
-  rules = [];
-
-  objShape = {};
-
   constructor(rule = null) {
+    this.expected = {};
+    this.rules = [];
+    this.objShape = {};
+
     if (typeof rule === 'function') {
       this.rules.push(rule);
     }
