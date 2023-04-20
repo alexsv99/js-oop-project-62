@@ -4,15 +4,14 @@ import ArraySchema from './schema/ArraySchema';
 import ObjectSchema from './schema/ObjectSchema';
 
 class Validator {
-  costructor() {
+  constructor() {
     this.schema = null;
+    this.customValidators = {
+      string: null,
+      number: null,
+      array: null,
+    };
   }
-
-  customValidators = {
-    string: null,
-    number: null,
-    array: null,
-  };
 
   getSchema() {
     return this.schema;
