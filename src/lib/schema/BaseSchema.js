@@ -11,11 +11,11 @@ export default class BaseSchema {
     }
   }
 
-  _checkShape(obj) {
+  checkShape(obj) {
     const keys = Object.keys(obj);
     for (let i = 0; i < keys.length; i += 1) {
       if (keys[i] in this.objShape) {
-        if (!this.objShape[keys[i]]._checkRules(obj[keys[i]])) {
+        if (!this.objShape[keys[i]].checkRules(obj[keys[i]])) {
           return false;
         }
       }
@@ -24,7 +24,7 @@ export default class BaseSchema {
     return true;
   }
 
-  _checkRules(value) {
+  checkRules(value) {
     for (let i = 0; i < this.rules.length; i += 1) {
       const fnRule = this.rules[i];
       const expectedParams = this.expected[fnRule.name] ?? [];
@@ -54,9 +54,9 @@ export default class BaseSchema {
 
   isValid(value) {
     if (isObject(value)) {
-      return this._checkShape(value);
+      return this.checkShape(value);
     }
 
-    return this._checkRules(value);
+    return this.checkRules(value);
   }
 }

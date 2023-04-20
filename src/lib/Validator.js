@@ -4,36 +4,36 @@ import ArraySchema from './schema/ArraySchema';
 import ObjectSchema from './schema/ObjectSchema';
 
 class Validator {
-  _schema;
+  schema;
 
-  _customValidators = {
+  customValidators = {
     string: null,
     number: null,
     array: null,
   };
 
   getSchema() {
-    return this._schema;
+    return this.schema;
   }
 
   setSchema(schema) {
-    this._schema = schema;
+    this.schema = schema;
   }
 
   string() {
-    this.setSchema(new StringSchema(this._customValidators.string));
+    this.setSchema(new StringSchema(this.customValidators.string));
 
     return this.getSchema();
   }
 
   number() {
-    this.setSchema(new NumberSchema(this._customValidators.number));
+    this.setSchema(new NumberSchema(this.customValidators.number));
 
     return this.getSchema();
   }
 
   array() {
-    this.setSchema(new ArraySchema(this._customValidators.array));
+    this.setSchema(new ArraySchema(this.customValidators.array));
 
     return this.getSchema();
   }
@@ -45,7 +45,7 @@ class Validator {
   }
 
   addValidator(type, nameFunc, func) {
-    this._customValidators[type] = Object.defineProperty(func, 'name', { value: nameFunc });
+    this.customValidators[type] = Object.defineProperty(func, 'name', { value: nameFunc });
   }
 }
 
