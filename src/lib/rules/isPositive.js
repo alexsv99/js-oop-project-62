@@ -1,3 +1,3 @@
-const isPositive = (val) => val > 0;
+const isPositive = (val) => val == null || val > 0;
 
 export default isPositive;

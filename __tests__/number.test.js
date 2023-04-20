@@ -23,6 +23,7 @@ test('number schema, positive rule', () => {
   const schema = v.number();
   schema.positive();
 
+  expect(schema.isValid(null)).toBeTruthy();
   expect(schema.isValid(10)).toBeTruthy();
   expect(schema.isValid(-1)).toBeFalsy();
 });
