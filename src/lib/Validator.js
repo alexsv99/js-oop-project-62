@@ -4,7 +4,9 @@ import ArraySchema from './schema/ArraySchema';
 import ObjectSchema from './schema/ObjectSchema';
 
 class Validator {
-  schema;
+  costructor() {
+    this.schema = null;
+  }
 
   customValidators = {
     string: null,
