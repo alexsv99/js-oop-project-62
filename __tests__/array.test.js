@@ -21,7 +21,7 @@ test('array schema, required rule', () => {
 test('array schema, required rule', () => {
   const v = new Validator();
   const schema = v.array();
-  schema.sizeOf(2);
+  schema.sizeof(2);
 
   expect(schema.isValid(['hexlet'])).toBeFalsy();
   expect(schema.isValid(['hexlet', 'javascript'])).toBeTruthy();

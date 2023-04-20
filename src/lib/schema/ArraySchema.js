@@ -1,7 +1,7 @@
 import BaseSchema from './BaseSchema';
 import notNull from '../rules/notNull';
 import isArray from '../rules/isArray';
-import sizeOf from '../rules/sizeOf';
+import sizeof from '../rules/sizeof.js';
 
 export default class ArraySchema extends BaseSchema {
   required() {
@@ -11,9 +11,9 @@ export default class ArraySchema extends BaseSchema {
     return this;
   }
 
-  sizeOf(size) {
-    this.expected.sizeOf = [size];
-    this.addRule(sizeOf);
+  sizeof(size) {
+    this.expected.sizeof = [size];
+    this.addRule(sizeof);
 
     return this;
   }
